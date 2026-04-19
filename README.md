@@ -5,7 +5,8 @@ In this project you will look at using collision layers to allow the player to t
 
 ## Where to find the relevant scripts
 
-Since we are using a varient project some of the script for the character are in the platformer folder, the scripts we create will still be in the public folder in the source directory.
+Since we are using a varient project some of the script for the character are in the platformer folder, the scripts we create will still be in the public folder in the source directory. A video overview is [here.](https://mmutube.mmu.ac.uk/media/t/1_9sh03xf5)
+
 ![Location of the scripts](Hints/Scripts.png)
 
 The primary Actors are in **Content->Varient_Platforming->Blueprints**
@@ -16,7 +17,7 @@ The primary Actors are in **Content->Varient_Platforming->Blueprints**
 ![Location of blueprints](Hints/Blueprints.png)
 
 ## Task
-- Adjust the player and the projectiles collisions so if the player performs a dash they will pass throught the projectile
+- Adjust the player and the projectiles collisions so if the player performs a dash they will pass throught the projectile, a guide can be found [here.](Solutions/FT_Evade%20Main%20Task.docx)
 ## Hints  
 
 To do this task you should use [collision layers](https://dev.epicgames.com/documentation/unreal-engine/collision-in-unreal-engine---overview). By putting colliders into layer we can decide when functionality should occur, e.g. a player can ignore a certian wall collider while enemies cannot. 
@@ -25,23 +26,23 @@ To do this task you should use [collision layers](https://dev.epicgames.com/docu
 
 The project has had some adjustments the two key are the creation of the **Auto Cannon** (Sources->Public) and the **FT_Evading Projectile** script. The cannon has a basic timer based upon the delta time that will fire a projectile every 10 seconds. The project is the same and the standardard 1st preson projectile, with some speed adjustments and disabling gravity. 
 
-
+In the **PlatformingCharacter** there is a new function to interupt the animation montage for the dash.
 
 ## Challenges
 Test your might
 
 ## Easy 
-- Expose the shoot delay so cannons can shoot at different times (See **AutoCannon.cpp** for timer)
-- Add a start shoot delay to the cannons so you can have cannons, start firing at different times (See **AutoCannon.cpp** for timer)
-- Add a rotation option so some spin when after shooting 
+- Expose the shoot delay so cannons can shoot at different times (See **AutoCannon.cpp** for timer) a guide can be found [here](Solutions/FT_Evade%20Easy%20Solution%20Expose%20Shooting%20Time.docx)
+- Add a start shoot delay to the cannons so you can have cannons, start firing at different times (See **AutoCannon.cpp** for timer) [here](Solutions/FT_Evade%20Easy%20Solution%20Expose%20Shooting%20Time.docx)
+- Add a rotation option so some spin when after shooting, a guide is [here](Solutions/FT_Evade_Easy_RotateCannon.docx)
 ```
 AddActorLocalRotation(FRotator(0.f, 90.f, 0.f));
 ```
 
 ## Medium
-- I have done a simple timer, in reality you shout use the FTimer, see the an overview [here](https://tomlooman.com/unreal-engine-cpp-timers/) and try to replace the shoot with this technique 
-- If the player hits the projectile while not dashing, move the player back to the start position (**SetActorLocation**)
-- Redesign the map to expand on the use of the dash mechanic
+- I have done a simple timer, in reality you shout use the FTimer, see the an overview [here](https://tomlooman.com/unreal-engine-cpp-timers/) and try to replace the shoot with this technique, you can also see a partical solution in the [easy guideance task 1&2](Solutions/FT_Evade%20Easy%20Solution%20Expose%20Shooting%20Time.docx)
+- If the player hits the projectile while not dashing, move the player back to the start position (**SetActorLocation** in **C++ Classes/Variant_Platforming/PlatformingCharacter.cpp**)
+- Redesign the map to expand on the use of the dash mechanic, see the [Cube Grid](https://dev.epicgames.com/documentation/unreal-engine/cubegrid-tool-in-unreal-engine?lang=en-US) Tool Guidance 
 
 ## Hard
 - Notice in the projectile we manually **bind** to a **user-made OnHit** Function:
